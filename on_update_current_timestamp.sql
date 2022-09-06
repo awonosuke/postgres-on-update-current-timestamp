@@ -31,14 +31,14 @@ $$ LANGUAGE plpgsql;
 
 
 -- difine trigger
-CREATE TRIGGER update_users_updated_at_step1
-  BEFORE UPDATE ON users FOR EACH ROW
+CREATE TRIGGER update_target_table_updated_at_step1
+  BEFORE UPDATE ON target_table FOR EACH ROW
   EXECUTE PROCEDURE trg_update_timestamp_none();
 
-CREATE TRIGGER update_users_updated_at_step2
-  BEFORE UPDATE OF _updated_at ON users FOR EACH ROW
+CREATE TRIGGER update_target_table_updated_at_step2
+  BEFORE UPDATE OF _updated_at ON target_table FOR EACH ROW
   EXECUTE PROCEDURE trg_update_timestamp_same();
 
-CREATE TRIGGER update_users_updated_at_step3
-  BEFORE UPDATE ON users FOR EACH ROW
+CREATE TRIGGER update_target_table_updated_at_step3
+  BEFORE UPDATE ON target_table FOR EACH ROW
   EXECUTE PROCEDURE trg_update_timestamp_current();

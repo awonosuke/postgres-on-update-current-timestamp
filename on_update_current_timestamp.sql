@@ -30,7 +30,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 
--- difine trigger
+-- define trigger
 CREATE TRIGGER update_target_table_updated_at_step1
   BEFORE UPDATE ON target_table FOR EACH ROW
   EXECUTE PROCEDURE trg_update_timestamp_none();
